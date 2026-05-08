@@ -26,9 +26,9 @@ There is no configuration. Probably should be able to configure the cooldown... 
 
 If you wrote the code for it, I'll happily accept a pull request if I feel like it doesn't bloat the scope of this plugin. 
 
-By submitting a contribution to this repository, you agree that your contribution is licensed under the same license as this repository, as published in the [`LICENSE`](https://raw.githubusercontent.com/ganyuke/Invitation/refs/heads/main/LICENSE) file.
+By submitting a contribution to this repository, you agree that your contribution is licensed under the same license as this repository, as published in the [`LICENSE`](https://raw.githubusercontent.com/ganyuke/Invitation/refs/heads/mailbox/LICENSE) file.
 
 ## License
 
-Unless otherwise noted, all source code in this repository is licensed under the **Mozilla Public License 2.0** (SPDX: **MPL-2.0**). Please view the [`LICENSE`](https://raw.githubusercontent.com/ganyuke/Invitation/refs/heads/main/LICENSE) file for the terms you are afforded under the MPL-2.0.
+Unless otherwise noted, all source code in this repository is licensed under the **Mozilla Public License 2.0** (SPDX: **MPL-2.0**). Please view the [`LICENSE`](https://raw.githubusercontent.com/ganyuke/Invitation/refs/heads/mailbox/LICENSE) file for the terms you are afforded under the MPL-2.0.
 

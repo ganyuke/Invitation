@@ -8,8 +8,9 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
-    implementation("org.xerial:sqlite-jdbc:3.36.0.3")
+    compileOnly("org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT")
+    implementation("org.xerial:sqlite-jdbc:3.53.0.0")
+    implementation("com.google.code.gson:gson:2.14.0")
 }
 
 java {

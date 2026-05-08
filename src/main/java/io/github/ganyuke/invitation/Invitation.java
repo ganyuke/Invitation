@@ -37,7 +37,6 @@ public final class Invitation extends JavaPlugin {
 
         Objects.requireNonNull(getCommand("invite"), "invite command missing from plugin.yml").setExecutor(new InviteCommand(this));
         Objects.requireNonNull(getCommand("invitelog"), "invitelog command missing from plugin.yml").setExecutor(new InviteLogCommand(this));
-        Objects.requireNonNull(getCommand("invitelog"), "invitelog command missing from plugin.yml").setTabCompleter(new InviteLogCommand(this));
     }
 
     public Database getDatabase() {

@@ -37,7 +37,9 @@ public final class MojangAPI {
             }
 
             String json = new String(conn.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
-            JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
+            // spigot 1.17 (java 16) gson doesn't support below and I don't want to shadow
+            //JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
+            JsonObject obj = new JsonParser().parse(json).getAsJsonObject();
 
             UUID uuid = UUID.fromString(
                     obj.get("id").getAsString()

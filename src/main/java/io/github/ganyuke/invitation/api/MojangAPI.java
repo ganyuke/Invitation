@@ -41,12 +41,13 @@ public final class MojangAPI {
             //JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
             JsonObject obj = new JsonParser().parse(json).getAsJsonObject();
 
+            String id = obj.get("id").getAsString();
             UUID uuid = UUID.fromString(
-                    obj.get("id").getAsString()
-                            .replaceFirst(
-                                    "(\\p{XDigit}{8})(\\p{XDigit}{4})(\\p{XDigit}{4})(\\p{XDigit}{4})(\\p{XDigit}+)",
-                                    "$1-$2-$3-$4-$5"
-                            )
+                id.substring(0, 8) + "-" +
+                id.substring(8, 12) + "-" +
+                id.substring(12, 16) + "-" +
+                id.substring(16, 20) + "-" +
+                id.substring(20)
             );
 
             return new MojangProfile(uuid, obj.get("name").getAsString());

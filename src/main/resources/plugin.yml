@@ -5,12 +5,16 @@ api-version: 1.17
 
 commands:
   invite:
-    description: Add a player to the whitelist and log it.
+    description: Add a player to the whitelist.
     usage: /invite <player>
     permission: invite.use
+  uninvite:
+    description: Revokes your most recent invite in the past configured seconds.
+    usage: /uninvite
+    permission: invite.use
   invitelog:
-    description: Show recent invite logs (optionally for a player).
-    usage: /invitelog [player]
+    description: Show invite logs (recent, or sent/recieved for a player with pages).
+    usage: /invitelog [recent [page]] OR /invitelog <sent|recieved> <player> [page]
     permission: invite.log
 
 permissions:

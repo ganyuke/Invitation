@@ -1,0 +1,5 @@
+# Seconds a player must wait between /invite attempts.
+cooldown-seconds: 7
+
+# Seconds after inviting during which /uninvite (or undo) can revoke that invite.
+undo-seconds: 60

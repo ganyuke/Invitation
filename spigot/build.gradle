@@ -1,0 +1,52 @@
+plugins {
+    id 'com.gradleup.shadow'
+    id 'java-library'
+}
+
+description = rootProject.description
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
+    compileOnly 'com.google.code.gson:gson:2.14.0'
+    compileOnly 'org.xerial:sqlite-jdbc:3.53.0.0'
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(java_version)
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 16
+}
+
+processResources {
+    def props = [
+            'version'    : version,
+            'description': project.description
+    ]
+    filesMatching('plugin.yml') {
+        expand props
+    }
+    inputs.properties props
+}
+
+jar {
+    enabled = false
+}
+
+shadowJar {
+    dependsOn ':core:jar'
+    archiveBaseName = 'Invitation'
+    archiveClassifier = ''
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+assemble.dependsOn shadowJar

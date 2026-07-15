@@ -1,0 +1,33 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(java_version)
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 16
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'com.google.code.gson:gson:2.14.0'
+    compileOnly 'org.xerial:sqlite-jdbc:3.53.0.0'
+}
+
+jar {
+    manifest {
+        attributes([
+                'Specification-Title'  : mod_name,
+                'Specification-Vendor' : mod_author,
+                'Specification-Version': project.version,
+                'Implementation-Title' : project.name,
+                'Implementation-Version': project.version
+        ])
+    }
+}

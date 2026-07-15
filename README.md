@@ -2,7 +2,7 @@
 
 Let your friends invite their friends without your knowledge! In less cynical terms, no longer will your friends have to beg you to whitelist their friends for the annual summer Minecraft survival multiplayer server. Tell them to do it themselves!
 
-A Spigot (or Paper, or Purpur, or whatever Spigot derivative you want) plugin for Minecraft 1.17 to 26.1.2. Tested to work on Spigot 1.17 and Paper 26.1.2.
+Available for **Spigot / Paper / Purpur** (Minecraft 1.17 to 26.2), **Fabric** (26.2), and **NeoForge** (26.2). Tested to work on Spigot 1.17 and Paper 26.1.2.
 
 This is a pretty wrapper around vanilla functionality. If there's something more than invites that you expect this plugin to do, it almost certainly already exists in vanilla: blacklists (`/ban`), kick on uninvite (`enforce-whitelist=true`), and invite revocation (`/whitelist remove`).
 
@@ -14,9 +14,20 @@ This is a pretty wrapper around vanilla functionality. If there's something more
 
 ## Installation
 
+### Spigot / Paper / Purpur
+
 1. Download the `.jar` file from GitHub releases or [Modrinth](https://modrinth.com/plugin/invitation).
 2. Place it in your `/plugins/` directory in your server root.
 3. Start your server.
+
+No extra JDBC plugin is required — Spigot/Paper already ship SQLite on the server classpath.
+
+### Fabric / NeoForge
+
+1. Build or download the mod jar for your loader.
+2. Install [Minecraft SQLite JDBC](https://modrinth.com/plugin/minecraft-sqlite-jdbc) in `mods/`.
+3. Install the Invitation mod jar in `mods/`.
+4. Start your server.
 
 ## User guide
 
@@ -66,7 +77,10 @@ This is a pretty wrapper around vanilla functionality. If there's something more
 <details>
   <summary>Click to view configuration options</summary>
 
-You can edit the plugin's configuration in `plugins/Invitation/config.yml`:
+You can edit the configuration in:
+
+- **Spigot / Paper / Purpur:** `plugins/Invitation/config.yml`
+- **Fabric / NeoForge:** `config/invitation/config.yml`
 
 | Key                 | Default | What it does                                                         |
 | ------------------- | ------- | -------------------------------------------------------------------- |
@@ -74,6 +88,18 @@ You can edit the plugin's configuration in `plugins/Invitation/config.yml`:
 | `undo-seconds`      | `60`    | How long after inviting `/uninvite` (or Undo) can revoke that invite. |
 
 </details>
+
+## Building from source
+
+Requires JDK 25.
+
+```bash
+./gradlew :spigot:build    # Spigot plugin
+./gradlew :fabric:build    # Fabric mod
+./gradlew :neoforge:build # NeoForge mod
+```
+
+All platforms share platform-agnostic common code in `core/`. Fabric and NeoForge shared code are in `common/`.
 
 ## Contributing
 

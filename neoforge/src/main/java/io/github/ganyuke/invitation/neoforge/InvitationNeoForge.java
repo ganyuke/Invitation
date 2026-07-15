@@ -1,0 +1,63 @@
+package io.github.ganyuke.invitation.neoforge;
+
+import io.github.ganyuke.invitation.common.InvitationBootstrap;
+import io.github.ganyuke.invitation.common.InvitationCommands;
+import io.github.ganyuke.invitation.common.PlayerJoinHandler;
+import net.minecraft.server.level.ServerPlayer;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.loading.FMLPaths;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.neoforged.neoforge.event.server.ServerStoppingEvent;
+import org.slf4j.LoggerFactory;
+
+import java.nio.file.Path;
+import java.util.concurrent.Executors;
+
+@Mod(InvitationNeoForge.MOD_ID)
+public final class InvitationNeoForge {
+    public static final String MOD_ID = "invitation";
+
+    private final InvitationBootstrap bootstrap = new InvitationBootstrap();
+
+    public InvitationNeoForge(ModContainer container) {
+        NeoForge.EVENT_BUS.register(this);
+    }
+
+    @SubscribeEvent
+    public void onServerStarting(ServerStartingEvent event) {
+        Path configDir = FMLPaths.CONFIGDIR.get().resolve("invitation");
+        if (!bootstrap.start(
+                event.getServer(),
+                configDir,
+                LoggerFactory.getLogger("Invitation"),
+                Executors.newCachedThreadPool(r -> {
+                    Thread t = new Thread(r, "Invitation-Async");
+                    t.setDaemon(true);
+                    return t;
+                })
+        )) {
+            return;
+        }
+        InvitationCommands.register(
+                event.getServer().getCommands().getDispatcher(),
+                bootstrap.core(),
+                new NeoForgeCommandPermissions()
+        );
+    }
+
+    @SubscribeEvent
+    public void onServerStopping(ServerStoppingEvent event) {
+        bootstrap.stop();
+    }
+
+    @SubscribeEvent
+    public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (bootstrap.core() != null && event.getEntity() instanceof ServerPlayer player) {
+            PlayerJoinHandler.onJoin(bootstrap.core(), player);
+        }
+    }
+}

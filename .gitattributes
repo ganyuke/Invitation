@@ -1,4 +1,3 @@
-#
 # https://help.github.com/articles/dealing-with-line-endings/
 #
 # Linux start script should use lf
@@ -9,3 +8,20 @@
 
 # Binary files should be left untouched
 *.jar           binary
+
+# multiloader template
+* text eol=lf
+*.bat text eol=crlf
+*.patch text eol=lf
+*.java text eol=lf
+*.png binary
+*.gif binary
+*.exe binary
+*.dll binary
+*.jar binary
+*.lzma binary
+*.zip binary
+*.pyd binary
+*.cfg text eol=lf
+*.jks binary
+*.ogg binary

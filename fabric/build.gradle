@@ -6,7 +6,7 @@ plugins {
 dependencies {
     minecraft("com.mojang:minecraft:${minecraft_version}")
     implementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
-    implementation("net.fabricmc.fabric-api:fabric-api:${fabric_version}")
+    compileOnly("net.fabricmc.fabric-api:fabric-api:${fabric_version}")
     include implementation(project(':core'))
     compileOnly 'me.lucko:fabric-permissions-api:0.7.0'
 }
@@ -17,7 +17,7 @@ loom {
             server()
             setConfigName('Fabric Server')
             ideConfigGenerated(true)
-            runDir('runs/server')
+            runDir('runs')
         }
     }
 }

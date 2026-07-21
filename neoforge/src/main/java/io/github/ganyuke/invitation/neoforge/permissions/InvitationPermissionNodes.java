@@ -1,6 +1,5 @@
-package io.github.ganyuke.invitation.neoforge;
+package io.github.ganyuke.invitation.neoforge.permissions;
 
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.NameAndId;
 import net.neoforged.neoforge.server.permission.nodes.PermissionNode;
 import net.neoforged.neoforge.server.permission.nodes.PermissionTypes;

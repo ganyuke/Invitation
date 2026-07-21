@@ -1,6 +1,6 @@
-package io.github.ganyuke.invitation.common;
+package io.github.ganyuke.invitation.common.ports;
 
-import io.github.ganyuke.invitation.ports.LoggerPort;
+import io.github.ganyuke.invitation.core.ports.LoggerPort;
 import org.slf4j.Logger;
 
 import java.util.function.Supplier;

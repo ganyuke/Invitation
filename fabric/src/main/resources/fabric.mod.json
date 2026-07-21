@@ -19,9 +19,9 @@
     "fabric-api": "*",
     "minecraft": "~${minecraft_version}",
     "java": ">=${java_version}",
-    "fabric-permissions-api-v0": "*"
+    "sqlite-jdbc": "*"
   },
   "suggests": {
-    "minecraft-sqlite-jdbc": "*"
+    "fabric-permissions-api-v0": "*"
   }
 }

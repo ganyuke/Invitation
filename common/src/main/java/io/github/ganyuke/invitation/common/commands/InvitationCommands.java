@@ -1,10 +1,10 @@
-package io.github.ganyuke.invitation.common;
+package io.github.ganyuke.invitation.common.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.suggestion.SuggestionProvider;
-import io.github.ganyuke.invitation.InvitationCore;
+import io.github.ganyuke.invitation.core.InvitationCore;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 

@@ -1,7 +1,6 @@
-package io.github.ganyuke.invitation.neoforge;
+package io.github.ganyuke.invitation.neoforge.permissions;
 
-import io.github.ganyuke.invitation.InvitationPermissions;
-import io.github.ganyuke.invitation.common.CommandPermissionGate;
+import io.github.ganyuke.invitation.common.commands.CommandPermissionGate;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.server.permission.PermissionAPI;

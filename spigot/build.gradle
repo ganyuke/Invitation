@@ -15,8 +15,6 @@ repositories {
 dependencies {
     implementation project(':core')
     compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
-    compileOnly 'com.google.code.gson:gson:2.14.0'
-    compileOnly 'org.xerial:sqlite-jdbc:3.53.0.0'
 }
 
 java {

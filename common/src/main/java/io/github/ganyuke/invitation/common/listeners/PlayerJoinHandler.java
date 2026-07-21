@@ -1,6 +1,6 @@
-package io.github.ganyuke.invitation.common;
+package io.github.ganyuke.invitation.common.listeners;
 
-import io.github.ganyuke.invitation.InvitationCore;
+import io.github.ganyuke.invitation.core.InvitationCore;
 import net.minecraft.server.level.ServerPlayer;
 
 public final class PlayerJoinHandler {

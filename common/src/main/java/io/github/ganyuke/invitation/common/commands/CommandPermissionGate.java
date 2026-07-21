@@ -1,4 +1,4 @@
-package io.github.ganyuke.invitation.common;
+package io.github.ganyuke.invitation.common.commands;
 
 import net.minecraft.commands.CommandSourceStack;
 

@@ -1,6 +1,6 @@
-package io.github.ganyuke.invitation.common;
+package io.github.ganyuke.invitation.common.commands;
 
-import io.github.ganyuke.invitation.ports.Audience;
+import io.github.ganyuke.invitation.core.ports.Audience;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.level.ServerPlayer;
 

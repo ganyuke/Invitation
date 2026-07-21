@@ -1,7 +1,7 @@
-package io.github.ganyuke.invitation.common;
+package io.github.ganyuke.invitation.common.ports;
 
-import io.github.ganyuke.invitation.ports.Audience;
-import io.github.ganyuke.invitation.ports.MessengerPort;
+import io.github.ganyuke.invitation.core.ports.Audience;
+import io.github.ganyuke.invitation.core.ports.MessengerPort;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;

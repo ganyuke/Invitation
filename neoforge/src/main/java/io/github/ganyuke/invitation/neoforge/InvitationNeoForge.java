@@ -1,8 +1,9 @@
 package io.github.ganyuke.invitation.neoforge;
 
-import io.github.ganyuke.invitation.common.InvitationBootstrap;
-import io.github.ganyuke.invitation.common.InvitationCommands;
-import io.github.ganyuke.invitation.common.PlayerJoinHandler;
+import io.github.ganyuke.invitation.common.bootstrap.InvitationBootstrap;
+import io.github.ganyuke.invitation.common.commands.InvitationCommands;
+import io.github.ganyuke.invitation.common.listeners.PlayerJoinHandler;
+import io.github.ganyuke.invitation.neoforge.permissions.NeoForgeCommandPermissions;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;

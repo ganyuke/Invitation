@@ -1,5 +1,6 @@
-package io.github.ganyuke.invitation.neoforge;
+package io.github.ganyuke.invitation.neoforge.permissions;
 
+import io.github.ganyuke.invitation.neoforge.InvitationNeoForge;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.server.permission.events.PermissionGatherEvent;

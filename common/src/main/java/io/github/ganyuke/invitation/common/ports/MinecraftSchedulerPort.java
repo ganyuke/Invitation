@@ -1,6 +1,6 @@
-package io.github.ganyuke.invitation.common;
+package io.github.ganyuke.invitation.common.ports;
 
-import io.github.ganyuke.invitation.ports.SchedulerPort;
+import io.github.ganyuke.invitation.core.ports.SchedulerPort;
 import net.minecraft.server.MinecraftServer;
 
 import java.util.concurrent.Executor;

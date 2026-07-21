@@ -4,8 +4,12 @@ plugins {
 }
 
 dependencies {
-    implementation project(':core')
-    jarJar project(':core')
+    jarJar(implementation(project(':core')))
+    jarJar(implementation('org.xerial:sqlite-jdbc')) {
+        version {
+            prefer '3.53.2.0'
+        }
+    }
 }
 
 neoForge {

@@ -1,6 +1,6 @@
 name: Invitation
 version: ${version}
-main: io.github.ganyuke.invitation.Invitation
+main: io.github.ganyuke.invitation.spigot.Invitation
 api-version: 1.17
 
 commands:

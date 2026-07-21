@@ -1,8 +1,8 @@
-package io.github.ganyuke.invitation.common;
+package io.github.ganyuke.invitation.common.ports;
 
-import io.github.ganyuke.invitation.WhitelistJson;
-import io.github.ganyuke.invitation.ports.LoggerPort;
-import io.github.ganyuke.invitation.ports.WhitelistPort;
+import io.github.ganyuke.invitation.core.WhitelistJson;
+import io.github.ganyuke.invitation.core.ports.LoggerPort;
+import io.github.ganyuke.invitation.core.ports.WhitelistPort;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.players.NameAndId;
 import net.minecraft.server.players.UserWhiteListEntry;

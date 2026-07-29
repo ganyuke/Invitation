@@ -14,6 +14,7 @@ import io.github.ganyuke.invitation.core.ports.WhitelistPort;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.Connection;
 
 public final class InvitationCore {
     private final Database database;
@@ -45,7 +46,8 @@ public final class InvitationCore {
                                        WhitelistPort whitelist,
                                        SchedulerPort scheduler,
                                        MessengerPort messenger,
-                                       LoggerPort logger) throws SqliteUnavailableException {
+                                       LoggerPort logger,
+                                       Connection conn) throws SqliteUnavailableException {
         if (!Files.isDirectory(dataDir)) {
             try {
                 Files.createDirectories(dataDir);
@@ -54,7 +56,7 @@ public final class InvitationCore {
             }
         }
 
-        Database database = new Database(dataDir, logger);
+        Database database = new Database(dataDir, logger, conn);
         database.init();
 
         UninviteRegistry uninviteRegistry = new UninviteRegistry();

@@ -13,12 +13,13 @@ import org.slf4j.Logger;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.sql.Connection;
 import java.util.concurrent.Executor;
 
 public final class InvitationBootstrap {
     private InvitationCore core;
 
-    public boolean start(MinecraftServer server, Path configDir, Logger logger, Executor asyncExecutor) {
+    public boolean start(MinecraftServer server, Path configDir, Logger logger, Executor asyncExecutor, Connection conn) {
         MinecraftLoggerPort loggerPort = new MinecraftLoggerPort(logger);
         VanillaWhitelistPort whitelistPort = new VanillaWhitelistPort(server, loggerPort);
 
@@ -36,7 +37,8 @@ public final class InvitationBootstrap {
                     whitelistPort,
                     new MinecraftSchedulerPort(server, asyncExecutor),
                     new MinecraftMessengerPort(server),
-                    loggerPort
+                    loggerPort,
+                    conn
             );
             return true;
         } catch (IOException e) {

@@ -29,22 +29,26 @@ public final class Database {
     private final Set<String> knownPlayerNames = ConcurrentHashMap.newKeySet();
     private Connection connection;
 
-    public Database(Path dataFolder, LoggerPort logger) {
+    public Database(Path dataFolder, LoggerPort logger, Connection connection) {
         this.dbPath = dataFolder.resolve("invites.db");
         this.url = "jdbc:sqlite:" + dbPath.toAbsolutePath();
         this.logger = logger;
+        this.connection = connection;
     }
 
     public void init() throws SqliteUnavailableException {
-        try {
-            Class.forName("org.sqlite.JDBC");
-        } catch (ClassNotFoundException e) {
-            logger.warning("Missing SQLite JDBC driver. Recommend installing minecraft-sqlite-jdbc");
-            throw new SqliteUnavailableException(e);
+        if (connection == null) {
+            try {
+                Class.forName("org.sqlite.JDBC");
+            } catch (ClassNotFoundException e) {
+                logger.warning("Missing SQLite JDBC driver. Recommend installing minecraft-sqlite-jdbc");
+                throw new SqliteUnavailableException(e);
+            }
         }
 
         try {
-            connection = DriverManager.getConnection(url);
+            if (connection == null)
+                connection = DriverManager.getConnection(url);
             try (Statement stmt = connection.createStatement()) {
                 stmt.execute("PRAGMA foreign_keys = ON");
             }

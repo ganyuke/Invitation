@@ -17,8 +17,8 @@ ordering = "NONE"
 side = "SERVER"
 
 [[dependencies.${mod_id}]]
-modId = "minecraft"
+modId = "sqlite_jdbc"
 type = "required"
-versionRange = "${minecraft_version_range}"
-ordering = "NONE"
-side = "BOTH"
+versionRange = "*"
+ordering = "BEFORE"
+side = "SERVER"

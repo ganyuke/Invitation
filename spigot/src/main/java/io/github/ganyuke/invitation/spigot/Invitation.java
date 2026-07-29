@@ -59,7 +59,8 @@ public final class Invitation extends JavaPlugin {
                     whitelistPort,
                     new BukkitSchedulerPort(this),
                     new BukkitMessengerPort(),
-                    loggerPort
+                    loggerPort,
+                    null
             );
         } catch (IOException e) {
             getLogger().severe("Failed to load Invitation config: " + e.getMessage());

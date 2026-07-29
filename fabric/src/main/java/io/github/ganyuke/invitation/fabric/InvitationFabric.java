@@ -30,7 +30,8 @@ public final class InvitationFabric implements ModInitializer {
                         Thread t = new Thread(r, "Invitation-Async");
                         t.setDaemon(true);
                         return t;
-                    })
+                    }),
+                    null
             )) {
                 return;
             }

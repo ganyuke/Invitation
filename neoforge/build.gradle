@@ -3,13 +3,23 @@ plugins {
     id 'net.neoforged.moddev'
 }
 
+repositories {
+    // Add Modrinth's Maven repo
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
+}
+
 dependencies {
     jarJar(implementation(project(':core')))
-    jarJar(implementation('org.xerial:sqlite-jdbc')) {
-        version {
-            prefer '3.53.2.0'
-        }
-    }
+//    implementation('org.xerial:sqlite-jdbc:3.53.2.0')
+    implementation "maven.modrinth:minecraft-sqlite-jdbc:3.53.2.0+2026-06-06"
+//    jarJar(implementation('org.xerial:sqlite-jdbc')) {
+//        version {
+//            prefer '3.53.2.0'
+//        }
+//    }
 }
 
 neoForge {

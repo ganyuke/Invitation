@@ -16,7 +16,7 @@ This is a pretty wrapper around vanilla functionality. If there's something more
 
 ### Spigot / Paper / Purpur
 
-1. Download the `.jar` file from GitHub releases or [Modrinth](https://modrinth.com/plugin/invitation).
+1. Download the `.jar` file from [GitHub releases](https://github.com/ganyuke/Invitation/releases) or [Modrinth](https://modrinth.com/plugin/slash-invite).
 2. Place it in your `/plugins/` directory in your server root.
 3. Start your server.
 
